@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Set Up React senza Vite</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+function Modal({
+  title = "Modal Title",
+  content = "This is the modal content.",
+  show = false,
+  onClose = () => {}
+}) {
+  return show && (
+    <div className="modal-container">
+      <div className="modal">
+        <h2>{title}</h2>
+        <p>{content}</p>
+        <button onClick={onClose}>Close</button>
+      </div>
+    </div>
+  );
+}
+
+
+    <script type="text/babel">
+        const { useState } = React;
+        const ReactApp = () => {
+
+
+
+
+}
+        
+
+            return (
+                <main>
+                    <h1>Applicazione React</h1>
+                    <p>Count: {count}</p>
+                    <button onClick={}>Open</button>
+                    <section>
+                    <h2>Section Title</h2>
+                    <Modal/>
+                    </section>
+                </main>
+            )
+        }
+    </script>
+
+
+
+
+
+    <script type="text/babel">
+        const { createRoot } = ReactDOM;
+        const elemento = document.querySelector(".elementoSpecifico");
+
+        //console.log(elemento); non mi esce <div class="elementoSpecifico"></div> perchè tutto questo codice dovrebbe essere nel body per visualizzare il div ma vabbè
+
+        const root = createRoot(elemento);
+
+        //console.log(root);
+
+        root.render(<ReactApp />)
+    </script>
+
+</head>
+
+<body>
+
+    <div class="elementoSpecifico"></div>
+
+</body>
+
+</html>
