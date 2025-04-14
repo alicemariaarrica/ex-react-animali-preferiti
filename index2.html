@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I miei animali Preferiti</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>I miei animali Preferiti</h1>
+    </header>
+
+    <main>
+        <figure>
+            <img src="https://picsum.photos/400/300" alt="Immagine Casuale" />
+        </figure>
+
+        <!-- Qui React monterà il componente -->
+        <div class="lista-animali"></div>
+    </main>
+
+    <footer>
+        <p>Creato con amore da... un collega sbadato! 🐾</p>
+    </footer>
+
+    <!-- React + Babel -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Codice React -->
+    <script type="text/babel">
+        const { useState } = React;
+
+        // Array da cui selezionare casualmente
+        const animalsChoices = ["Cane", "Gatto", "Pappagallo", "Cavallo", "Panda"];
+
+        const ListaAnimali = () => {
+            const [animals, setAnimals] = useState([]);
+
+            const aggiungiAnimale = () => {
+                const randomIndex = Math.floor(Math.random() * animalsChoices.length);
+                const animaleCasuale = animalsChoices[randomIndex];
+                setAnimals([...animals, animaleCasuale]);
+            };
+
+            return (
+                <div>
+                    <button onClick={aggiungiAnimale}>Aggiungi Animale</button>
+                    <details open>
+                        <summary>Animali</summary>
+                        <ul>
+                            {animals.map((animale, index) => (
+                                <li key={index}>{animale}</li>
+                            ))}
+                        </ul>
+                    </details>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.querySelector(".lista-animali"));
+        root.render(<ListaAnimali />);
+    </script>
+</body>
+
+</html>
