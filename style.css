@@ -40,3 +40,13 @@ img {
 .lista-animali {
     width: 100%;
 }
+
+h1 {
+    display: inline;
+    padding: 1rem;
+}
+
+li {
+    padding: 0.5rem;
+    list-style: none;
+}
